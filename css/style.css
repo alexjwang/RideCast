@@ -1,0 +1,9 @@
+hr.divider {
+    max-width: 8rem;
+    border-width: 0.2rem;
+    border-color: #007bff;
+  }
+
+p.descrip {
+    font-size: 1.2em;
+}
