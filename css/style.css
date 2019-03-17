@@ -7,3 +7,11 @@ hr.divider {
 p.descrip {
     font-size: 1.2em;
 }
+
+header.masthead {
+  padding-top: 5rem;
+}
+
+#ridemast {
+  height:5vh;
+}
