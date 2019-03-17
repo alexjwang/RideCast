@@ -7,13 +7,15 @@ app = Flask(__name__,
             static_folder='',
             template_folder='')
 
+location = '40.7243,-74.0018'
+
 url = 'https://api.foursquare.com/v2/venues/search'
 
 params = dict (
     client_id = 'DQEMSIAJ5MRKQWRNHMYW10FRRYHO12WZWXBTJJT3JMNZXW3S',
     client_secret = 'K3QGPTDIQCKDYQKERSXRM2WS0SGCBUGZUNDX3SAQUKYCDPRL',
     v = '20180323',
-    ll = '40.7243,-74.0018',
+    ll = location,
     query = 'coffee',
     limit = 1,
     radius = 250,
