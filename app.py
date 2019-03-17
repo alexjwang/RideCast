@@ -2,7 +2,7 @@ import json, requests
 from urllib.request import urlopen
 from flask import Flask, render_template, redirect, request
 from markupsafe import Markup
-from data import analyze, getdynamic
+from data import analyze, getdynamic, findclosest
 
 app = Flask(__name__,
             static_url_path='',
@@ -16,6 +16,8 @@ day = 3
 
 location = analyze(time, day)
 dynamicLocation = getdynamic(location)
+
+render = {}
 
 '''
 url = 'https://api.foursquare.com/v2/venues/search'
@@ -48,7 +50,7 @@ def getNearby():
 
 
 # need to figure out how to post two values, latitude and longitude (which the user inputs at ride.html)
-# currently i'm trying to redirect to another url which is ride2.html, which then asks for 
+# currently i'm trying to redirect to another url which is ride2.html, which then asks for
 # a get requests before using the same build as map.js
 lat = 0
 lon = 0
@@ -59,9 +61,24 @@ def nextmap():
     lon = 0
     if request.method == 'POST':
         args = request.form
+        print("\n\n\n")
+        print(args)
         lat = args.get('lati', '')
         lon = args.get('longi', '')
-        return redirect("ride2.html")
+
+        time = 500 #CHANGE THIS LATER
+        day = 4 #THIS TOO
+        location = analyze(time, day)
+        dynamicLocation = getdynamic(location)
+        closestHotspot = findclosest(float(lat), float(lon), location)
+
+        global render
+        render = {
+            'dynamicLocation': dynamicLocation,
+            'closestHotspot': closestHotspot
+        }
+
+        return render_template('ride2.html')
 
     return json.dumps(lat+","+lon+json.dumps(dynamicLocation))
 
@@ -73,8 +90,10 @@ def index():
 def ride():
     return render_template("ride.html")
 
-@app.route('/ride2.html')
+@app.route('/ride2.html', methods=['POST'])
 def ride2():
+    global render
+
     return render_template("ride2.html")
 
 if __name__ == "__main__":
