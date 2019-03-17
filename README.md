@@ -10,7 +10,7 @@ Uber has become an integral part of our lives over the past few years, but the i
 ## What it does
 When the RideCast webpage loads, it automatically constructs and trains the machine learning model on the Uber dataset, taking into consideration the current time/day. The UI then displays all of the Uber “hotspots,” which are essentially areas with a very high frequency of rides, in a map. The user enters their location, upon which the map will zoom to their location, allowing them to better view the nearest hotspots to them.
 
-###Landing page
+##Landing page
 <img src="./img/pic0.png" />
 <img src="./img/pic1.png"/>
 ###Interactive, real-time map of nearest hotspots.
