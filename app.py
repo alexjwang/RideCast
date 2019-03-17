@@ -1,12 +1,13 @@
 import json, requests
+from urllib.request import urlopen
 from flask import Flask, render_template
-
-url = 'https://api.foursquare.com/v2/venues/search'
 
 app = Flask(__name__,
             static_url_path='',
             static_folder='',
             template_folder='')
+
+url = 'https://api.foursquare.com/v2/venues/search'
 
 params = dict (
     client_id = 'DQEMSIAJ5MRKQWRNHMYW10FRRYHO12WZWXBTJJT3JMNZXW3S',
@@ -18,8 +19,12 @@ params = dict (
     radius = 250,
 )
 resp = requests.get(url = url, params=params)
-data = json.loads(resp.text)
-print(data)
+foursqData = json.loads(resp.text)
+print(foursqData)
+
+
+tripData = json.load(urlopen("http://api.tripadvisor.com/api/partner/2.0/location/48739/?key=2f5aef9e-d399-4298-9986-ea6305c270a8"))
+print(tripData)
 
 @app.route('/')
 def index():
