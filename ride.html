@@ -55,18 +55,26 @@
     <div class="container-fluid p-0">
       <div class="row no-gutters">
         <div class="col-lg-8 order-lg-2 text-white showcase-text align-items-center justify-content-center text-center"
-        style='border: 1px solid black'>
+        style='border: 1px solid black' id='statmap'>
             <div id="map"></div>
         </div>
         <div class="col-lg-4 order-lg-1 showcase-text align-items-center justify-content-center text-center"
         style='border: 1px solid black; border-right: 0px'>
-          <h2>Accurately Predicted Hotspots in the Area</h2>
+          <h2>Find the nearest hotspot for pickup!</h2>
           <p class="lead mb-0">
-            This is a map depicting the most active hotspots in the entire NYC area, updated real-time with Uber data.
-            Hotspots are determined through first a Random Forest Classification model, which are then sorted by relevance and popularity 
-            with a binary search and optimization algorithm.
-            Requesting a ride will portray more hotspots in your immediate vicinity.
+            Walking to the designated location is a win for all parties involved: less driving for the Uber driver,
+            less carbon emissions for the environment, and you save money/possibly even time by carpooling!
           </p>
+          <form>
+            <div class="form-row">
+                <div class="col-14 col-md-9 mb-2 mb-md-0">
+                <input type="Location" class="form-control " placeholder="Enter your location...">
+                </div>
+                <div class="col-14 col-md-3">
+                <button type="submit" class="btn btn-primary" id='btnleft'>Sign up!</button>
+                </div>
+            </div>
+          </form>
         </div>
       </div>
       

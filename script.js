@@ -8,7 +8,7 @@ xmlhttp.onreadystatechange = function() {
             coordinates += "&markers=color:red%7Csize:tiny%7C" + coordinatesArr[i];
         }
         
-        var mapsurl = "https://maps.googleapis.com/maps/api/staticmap?center=40.7099937,-73.9302593&zoom=10&size=600x350&scale=2"
+        var mapsurl = "https://maps.googleapis.com/maps/api/staticmap?center=40.7199937,-73.9502593&zoom=10&size=600x350&scale=2"
         mapsurl += coordinates + "&key=AIzaSyDOcAauPBKu0QK8U4ItFAa1FtgtzcfO4Yo"
         
         var image = document.getElementById("hotspotmap");

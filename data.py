@@ -92,7 +92,7 @@ def analyze(time, day):
 def getdynamic(export):
     uwu = []
     for owo in export:
-        uwu.append("{lat: " + owo.split(',')[0] + ", lng: " + owo.split(',')[1] + "}")
+        uwu.append('{"lat": ' + owo.split(',')[0] + ', "lng": ' + owo.split(',')[1] + '}')
     return uwu
 
 #to check for cars in a 10-mile radius

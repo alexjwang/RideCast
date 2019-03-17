@@ -29,3 +29,7 @@ header.masthead {
 #map {
   height: 100%;
 }
+
+#btnleft {
+  padding: 0.375rem 0.375rem;
+}

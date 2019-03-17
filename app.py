@@ -2,7 +2,7 @@ import json, requests
 from urllib.request import urlopen
 from flask import Flask, render_template, redirect
 from markupsafe import Markup
-from data import analyze
+from data import analyze, getdynamic
 
 app = Flask(__name__,
             static_url_path='',
@@ -12,9 +12,10 @@ app = Flask(__name__,
 time = 648
 day = 3
 
-#location = ['40.7243,-74.0018', '40.7043,-74.1018']
+#test location: 40.748513, -73.985688
 
 location = analyze(time, day)
+dynamicLocation = getdynamic(location)
 
 '''
 url = 'https://api.foursquare.com/v2/venues/search'
@@ -36,11 +37,14 @@ tripData = json.load(urlopen("http://api.tripadvisor.com/api/partner/2.0/locatio
 print(tripData)
 '''
 
-data = json.dumps(location)
-
 @app.route('/get/hotspots/', methods=['GET'])
 def getHotspots():
     return json.dumps(location)
+
+@app.route('/get/nearby/', methods=['GET'])
+def getNearby():
+    print(dynamicLocation)
+    return json.dumps(dynamicLocation)
 
 @app.route('/')
 def index():
