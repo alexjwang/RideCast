@@ -9,15 +9,7 @@ app = Flask(__name__,
             static_folder='',
             template_folder='')
 
-time = 648
-day = 3
-
 #test location: 40.748513, -73.985688
-
-location = analyze(time, day)
-dynamicLocation = getdynamic(location)
-
-render = {}
 
 '''
 url = 'https://api.foursquare.com/v2/venues/search'
@@ -38,6 +30,11 @@ print(foursqData)
 tripData = json.load(urlopen("http://api.tripadvisor.com/api/partner/2.0/location/48739/?key=2f5aef9e-d399-4298-9986-ea6305c270a8"))
 print(tripData)
 '''
+time = 648
+day = 3
+
+location = analyze(time, day)
+dynamicLocation = getdynamic(location)
 
 @app.route('/get/hotspots/', methods=['GET'])
 def getHotspots():
@@ -52,35 +49,28 @@ def getNearby():
 # need to figure out how to post two values, latitude and longitude (which the user inputs at ride.html)
 # currently i'm trying to redirect to another url which is ride2.html, which then asks for
 # a get requests before using the same build as map.js
-lat = 0
-lon = 0
+lat = ''
+lon = ''
 
 @app.route('/post/location/', methods=['GET', 'POST'])
 def nextmap():
-    lat = 0
-    lon = 0
     if request.method == 'POST':
         args = request.form
         print("\n\n\n")
         print(args)
+        global lat
+        global lon
         lat = args.get('lati', '')
         lon = args.get('longi', '')
+        print(lat)
 
-        time = 500 #CHANGE THIS LATER
-        day = 4 #THIS TOO
-        location = analyze(time, day)
-        dynamicLocation = getdynamic(location)
-        closestHotspot = findclosest(float(lat), float(lon), location)
+        #closestHotspot = findclosest(float(lat), float(lon), location)
 
-        global render
-        render = {
-            'dynamicLocation': dynamicLocation,
-            'closestHotspot': closestHotspot
-        }
+        return redirect('ride2.html')
 
-        return render_template('ride2.html')
-
-    return json.dumps(lat+","+lon+json.dumps(dynamicLocation))
+    dynamicLocation.append(lat)
+    dynamicLocation.append(lon)
+    return json.dumps(dynamicLocation)
 
 @app.route('/')
 def index():
