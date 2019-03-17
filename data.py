@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+import random
+from math import sin, cos, sqrt, atan2, radians
 
 # Import data
 def readadddata(filename):
@@ -78,8 +80,8 @@ def analyze(time, day):
             if y > hotspots.mean() + 5*hotspots.std():
                 uWu = []
                 uWu.append(y)
-                uWu.append(uniformgrid[x.tolist().index(y)*170+hotspots.tolist().index(x.tolist())][0]+.01449/2)
-                uWu.append(uniformgrid[x.tolist().index(y)*170+hotspots.tolist().index(x.tolist())][1]+.01455/2)
+                uWu.append(uniformgrid[x.tolist().index(y)*170+hotspots.tolist().index(x.tolist())][0]+random.uniform(0,.01449)/2)
+                uWu.append(uniformgrid[x.tolist().index(y)*170+hotspots.tolist().index(x.tolist())][1]+random.uniform(0,.01455)/2)
                 finalout.append(uWu)
 
     export = []
@@ -87,3 +89,33 @@ def analyze(time, day):
         export.append(str(oWo[1]) + "," + str(oWo[2]))
 
     return export
+
+#to check for cars in a 10-mile radius
+def getdistance(lata, longa, latb, longb):
+    # approximate radius of earth in km
+    R = 6373.0
+
+    lat1 = radians(lata)
+    lon1 = radians(longa)
+    lat2 = radians(latb)
+    lon2 = radians(longb)
+    dlon = abs(lon2 - lon1)
+    dlat = abs(lat2 - lat1)
+    a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
+    c = 2 * atan2(sqrt(a), sqrt(1 - a))
+    distance = R * c
+    return distance * 0.621371 #convert to miles
+
+def findclosest(mylat, mylon, coords): #coords is a string array
+    mindistance = 696969
+    index = 0
+    c = 0
+    for str in coords:
+        lat = float(str.split(',')[0])
+        lon = float(str.split(',')[1])
+        dist = abs(getdistance(lat, lon, mylat, mylon))
+        if dist < mindistance:
+            mindistance = dist
+            index = c
+        c += 1
+    return coords[index]
