@@ -9,13 +9,7 @@ app = Flask(__name__,
             static_folder='',
             template_folder='')
 
-time = 648
-day = 3
-
 #test location: 40.748513, -73.985688
-
-location = analyze(time, day)
-dynamicLocation = getdynamic(location)
 
 '''
 url = 'https://api.foursquare.com/v2/venues/search'
@@ -36,6 +30,11 @@ print(foursqData)
 tripData = json.load(urlopen("http://api.tripadvisor.com/api/partner/2.0/location/48739/?key=2f5aef9e-d399-4298-9986-ea6305c270a8"))
 print(tripData)
 '''
+time = 648
+day = 3
+
+location = analyze(time, day)
+dynamicLocation = getdynamic(location)
 
 @app.route('/get/hotspots/', methods=['GET'])
 def getHotspots():
