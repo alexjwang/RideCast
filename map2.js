@@ -3,10 +3,10 @@ function initMap() {
     xmlhttp3.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var coordinatesArr = JSON.parse(this.responseText);
-            var lti = coordinatesArr[0];
-            var lgi = coordinatesArr[1];
+            var lti = coordinatesArr[coordinatesArr.length - 2];
+            var lgi = coordinatesArr[coordinatesArr.length - 1];
             console.log(lti);
-            for(i = 2; i < coordinatesArr.length; i++) {
+            for(i = 0; i < coordinatesArr.length - 2; i++) {
                 coordinatesArr[i] = JSON.parse(coordinatesArr[i]);
             }
             var map;
@@ -18,7 +18,14 @@ function initMap() {
             );
             map = new google.maps.Map(document.getElementById('map'), {
                 center: home,
-                zoom: 13
+                zoom: 15
+            });
+            var currMarker = new google.maps.Marker({
+                position: home,
+                map: map,
+                icon: {
+                    url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                }
             });
     
             var myLatLngs = new Array(coordinatesArr.length);
