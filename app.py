@@ -1,13 +1,14 @@
 import json, requests
 from urllib.request import urlopen
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
+from markupsafe import Markup
 
 app = Flask(__name__,
             static_url_path='',
             static_folder='',
             template_folder='')
 
-location = ['40.7243,-74.0018', '41.7243,-74.0018']
+location = ['40.7243,-74.0018', '40.7043,-74.1018']
 
 url = 'https://api.foursquare.com/v2/venues/search'
 
@@ -28,9 +29,19 @@ print(foursqData)
 tripData = json.load(urlopen("http://api.tripadvisor.com/api/partner/2.0/location/48739/?key=2f5aef9e-d399-4298-9986-ea6305c270a8"))
 print(tripData)
 
+data = json.dumps(location)
+
+@app.route('/get/hotspots/', methods=['GET'])
+def getHotspots():
+    return json.dumps(location)
+
 @app.route('/')
 def index():
-    return render_template("index.html", location=location)
+    return render_template("index.html")
+
+@app.route('/ride.html')
+def ride():
+    return render_template("ride.html")
 
 if __name__ == "__main__":
     app.run(debug=True, host='localhost')
