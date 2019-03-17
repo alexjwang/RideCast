@@ -22,7 +22,8 @@
   <link href="css/landing-page.min.css" rel="stylesheet">
 
   <link href="css/style.css" rel="stylesheet">
-
+  
+  
 </head>
 
 <body>
@@ -68,7 +69,7 @@
             <div class="features-icons-icon d-flex">
               <i class="fas fa-desktop m-auto text-primary"></i>
             </div>
-            <h3>Deep Learning Based</h3>
+            <h3>Random Forest Based</h3>
             <p class="lead mb-0">Most efficient path determined through machine learning model.</p>
           </div>
         </div>
@@ -91,18 +92,16 @@
       <div class="row no-gutters">
         <div class="col-lg-8 order-lg-2 text-white showcase-text align-items-center justify-content-center text-center"
         style='border: 1px solid black'>
-          <img
-          src = 'https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
-          &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
-          &markers=color:red%7Clabel:C%7C40.718217,-73.998284
-          &key= AIzaSyDOcAauPBKu0QK8U4ItFAa1FtgtzcfO4Yo'
-          >
+          <img id='hotspotmap'>
         </div>
         <div class="col-lg-4 order-lg-1 showcase-text align-items-center justify-content-center text-center"
         style='border: 1px solid black; border-right: 0px'>
           <h2>Accurately Predicted Hotspots in the Area</h2>
           <p class="lead mb-0">
-            This is a map depicting the most active hotspots in the NYC area, updated real-time with Uber data. 
+            This is a map depicting the most active hotspots in the entire NYC area, updated real-time with Uber data.
+            Hotspots are determined through first a Random Forest Classification model, which are then sorted by relevance and popularity 
+            with a binary search and optimization algorithm.
+            Requesting a ride will portray more hotspots in your immediate vicinity.
           </p>
         </div>
       </div>
@@ -222,6 +221,12 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    var coordinatesArr = {{location | tojson}};
+    var coordinates = coordinatesArr[0];
+  </script>
+  <script src='./script.js'></script>
 
 </body>
 
