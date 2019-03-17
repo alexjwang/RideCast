@@ -10,11 +10,11 @@ Uber has become an integral part of our lives over the past few years, but the i
 When the RideCast webpage loads, it automatically constructs and trains the machine learning model on the Uber dataset, taking into consideration the current time/day. The UI then displays all of the Uber “hotspots,” which are essentially areas with a very high frequency of rides, in a map. The user enters their location, upon which the map will zoom to their location, allowing them to better view the nearest hotspots to them.
 
 ###Landing page
-<img src="./img/pic0.jpg" height=700/>
-<img src="./img/pic1.jpg" height=700/>
+<img src="./img/pic0.png" height=700/>
+<img src="./img/pic1.png" height=700/>
 ###Interactive, real-time map of nearest hotspots.
-<img src="./img/pic2.jpg" height=700/>
-<img src="./img/pic3.jpg" height=700/>
+<img src="./img/pic2.png" height=700/>
+<img src="./img/pic3.png" height=700/>
 
 ## How we built it
 We constructed a random forest regression model using Keras on top of TensorFlow that predicted the likely ride requests given the time of day and the day of week. The model correctly predicted latitude and longitude to within a mean-squared error of 0.000842 and 0.00274 degrees, respectively (approximately 0.06 and 0.19 miles).
