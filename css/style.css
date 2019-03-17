@@ -15,3 +15,11 @@ header.masthead {
 #ridemast {
   height:5vh;
 }
+
+#map {
+  padding: 5rem;
+}
+
+#hotspotmap {
+  width: 100%;
+}

@@ -2,13 +2,19 @@ import json, requests
 from urllib.request import urlopen
 from flask import Flask, render_template, redirect
 from markupsafe import Markup
+from data import analyze
 
 app = Flask(__name__,
             static_url_path='',
             static_folder='',
             template_folder='')
 
+time = 648
+day = 3
+
 location = ['40.7243,-74.0018', '40.7043,-74.1018']
+
+location = analyze(time, day)
 
 url = 'https://api.foursquare.com/v2/venues/search'
 
@@ -24,7 +30,6 @@ params = dict (
 resp = requests.get(url = url, params=params)
 foursqData = json.loads(resp.text)
 print(foursqData)
-
 
 tripData = json.load(urlopen("http://api.tripadvisor.com/api/partner/2.0/location/48739/?key=2f5aef9e-d399-4298-9986-ea6305c270a8"))
 print(tripData)

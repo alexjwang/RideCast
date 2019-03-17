@@ -8,7 +8,7 @@ xmlhttp.onreadystatechange = function() {
             coordinates += "&markers=color:red%7Csize:tiny%7C" + coordinatesArr[i];
         }
         
-        var mapsurl = "https://maps.googleapis.com/maps/api/staticmap?center=40.7099937,-73.9302593&zoom=10&size=500x450"
+        var mapsurl = "https://maps.googleapis.com/maps/api/staticmap?center=40.7099937,-73.9302593&zoom=10&size=600x350&scale=2"
         mapsurl += coordinates + "&key=AIzaSyDOcAauPBKu0QK8U4ItFAa1FtgtzcfO4Yo"
         
         var image = document.getElementById("hotspotmap");
@@ -18,8 +18,6 @@ xmlhttp.onreadystatechange = function() {
 
 xmlhttp.open("GET", "http://localhost:5000/get/hotspots", true);
 xmlhttp.send();
-
-
 
 
 
