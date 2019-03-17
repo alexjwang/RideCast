@@ -56,7 +56,7 @@
       <div class="row no-gutters">
         <div class="col-lg-8 order-lg-2 text-white showcase-text align-items-center justify-content-center text-center"
         style='border: 1px solid black'>
-          <img id='hotspotmap'>
+            <div id="map"></div>
         </div>
         <div class="col-lg-4 order-lg-1 showcase-text align-items-center justify-content-center text-center"
         style='border: 1px solid black; border-right: 0px'>
@@ -67,14 +67,6 @@
             with a binary search and optimization algorithm.
             Requesting a ride will portray more hotspots in your immediate vicinity.
           </p>
-        </div>
-      </div>
-
-      <div class="row no-gutters" id = 'ride'>
-        <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/bg-showcase-2.jpg');"></div>
-        <div class="col-lg-6 my-auto showcase-text">
-          <h2>Updated For Bootstrap 4</h2>
-          <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
         </div>
       </div>
       
@@ -132,7 +124,11 @@
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <script src='./script.js'></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOcAauPBKu0QK8U4ItFAa1FtgtzcfO4Yo&callback=initMap"
+    async defer>
+  </script>
+  <script src = './map.js'></script>
 
 </body>
 

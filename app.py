@@ -12,10 +12,11 @@ app = Flask(__name__,
 time = 648
 day = 3
 
-location = ['40.7243,-74.0018', '40.7043,-74.1018']
+#location = ['40.7243,-74.0018', '40.7043,-74.1018']
 
 location = analyze(time, day)
 
+'''
 url = 'https://api.foursquare.com/v2/venues/search'
 
 params = dict (
@@ -33,6 +34,7 @@ print(foursqData)
 
 tripData = json.load(urlopen("http://api.tripadvisor.com/api/partner/2.0/location/48739/?key=2f5aef9e-d399-4298-9986-ea6305c270a8"))
 print(tripData)
+'''
 
 data = json.dumps(location)
 
