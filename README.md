@@ -11,10 +11,10 @@ When the RideCast webpage loads, it automatically constructs and trains the mach
 
 ###Landing page
 <img src="./img/pic0.png" />
-<img src="./img/pic1.png" height=700/>
+<img src="./img/pic1.png"/>
 ###Interactive, real-time map of nearest hotspots.
-<img src="./img/pic2.png" height=700/>
-<img src="./img/pic3.png" height=700/>
+<img src="./img/pic2.png"/>
+<img src="./img/pic3.png"/>
 
 ## How we built it
 We constructed a random forest regression model using Keras on top of TensorFlow that predicted the likely ride requests given the time of day and the day of week. The model correctly predicted latitude and longitude to within a mean-squared error of 0.000842 and 0.00274 degrees, respectively (approximately 0.06 and 0.19 miles).
