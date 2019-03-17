@@ -44,7 +44,7 @@
           <hr class="divider">
         </div>
         <div class="col-lg-7">
-          <p class="descrip text-white font-weight-light mb-5">Real-time, deep learning-based prediction to find the most efficient ride for everyone involved: You, the driver, and the environment.</p>
+          <p class="descrip text-white font-weight-light mb-5">Real-time, machine learning-based prediction to find the most efficient ride for everyone involved: You, the driver, and the environment.</p>
         </div>
       </div>
     </div>
@@ -65,13 +65,15 @@
             Walking to the designated location is a win for all parties involved: less driving for the Uber driver,
             less carbon emissions for the environment, and you save money/possibly even time by carpooling!
           </p>
-          <form>
+
+          <form action="http://localhost:5000/post/location/" method="POST">
             <div class="form-row">
                 <div class="col-14 col-md-9 mb-2 mb-md-0">
-                <input type="Location" class="form-control " placeholder="Enter your location...">
+                <input type="Location" class="form-control " name="lati" placeholder="Latitude">
+                <input type="Location" class="form-control " name="longi" placeholder="Longitude">
                 </div>
                 <div class="col-14 col-md-3">
-                <button type="submit" class="btn btn-primary" id='btnleft'>Sign up!</button>
+                <button type="submit" class="btn btn-lg btn-primary" >Search Spots!</button>
                 </div>
             </div>
           </form>

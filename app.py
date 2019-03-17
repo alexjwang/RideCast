@@ -1,6 +1,6 @@
 import json, requests
 from urllib.request import urlopen
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 from markupsafe import Markup
 from data import analyze, getdynamic
 
@@ -46,6 +46,25 @@ def getNearby():
     print(dynamicLocation)
     return json.dumps(dynamicLocation)
 
+
+# need to figure out how to post two values, latitude and longitude (which the user inputs at ride.html)
+# currently i'm trying to redirect to another url which is ride2.html, which then asks for 
+# a get requests before using the same build as map.js
+lat = 0
+lon = 0
+
+@app.route('/post/location/', methods=['GET', 'POST'])
+def nextmap():
+    lat = 0
+    lon = 0
+    if request.method == 'POST':
+        args = request.form
+        lat = args.get('lati', '')
+        lon = args.get('longi', '')
+        return redirect("ride2.html")
+
+    return json.dumps(lat+","+lon+json.dumps(dynamicLocation))
+
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -53,6 +72,10 @@ def index():
 @app.route('/ride.html')
 def ride():
     return render_template("ride.html")
+
+@app.route('/ride2.html')
+def ride2():
+    return render_template("ride2.html")
 
 if __name__ == "__main__":
     app.run(debug=True, host='localhost')
