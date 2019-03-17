@@ -1,6 +1,6 @@
 # HackRPI
 By Alexander Wang, Joheen Chakraborty
-
+https://devpost.com/software/ridecast
 
 ## Inspiration
 Uber has become an integral part of our lives over the past few years, but the implications of the ride sharing app, both in terms of environmental and social impact, cannot be overlooked. The core idea behind our project is that Uber data exhibits periodic patterns, and is therefore predictable by machine learning algorithms. Being able to predict Uber rides taking place at any point of time is extremely powerful--for instance, with carbon emissions on the rise, this kind of information can be directly helpful in improving gas use efficiency and encouraging ride sharing. Using publicly available Uber data from over from ~4.5 million rides in the Greater NYC area from April-September 2014 (most recent data available in that area), we constructed a machine learning model that predicted the likely ride requests given the time of day and the day of week and leverage it to optimize rider/driver interactions.
