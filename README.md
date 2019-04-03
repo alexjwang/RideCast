@@ -13,6 +13,7 @@ When the RideCast webpage loads, it automatically constructs and trains the mach
 ## Landing page
 <img src="./img/pic0.png" />
 <img src="./img/pic1.png"/>
+
 ## Interactive, real-time map of nearest hotspots.
 <img src="./img/pic2.png"/>
 <img src="./img/pic3.png"/>
