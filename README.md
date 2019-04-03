@@ -3,9 +3,6 @@ By Alexander Wang, Joheen Chakraborty
 
 https://devpost.com/software/ridecast
 
-## To see the website
-run " python app.py " in the root directory of this project. It will take a while to finish running the program because it is training the model based on the data.
-
 ## Inspiration
 Uber has become an integral part of our lives over the past few years, but the implications of the ride sharing app, both in terms of environmental and social impact, cannot be overlooked. The core idea behind our project is that Uber data exhibits periodic patterns, and is therefore predictable by machine learning algorithms. Being able to predict Uber rides taking place at any point of time is extremely powerful--for instance, with carbon emissions on the rise, this kind of information can be directly helpful in improving gas use efficiency and encouraging ride sharing. Using publicly available Uber data from over from ~4.5 million rides in the Greater NYC area from April-September 2014 (most recent data available in that area), we constructed a machine learning model that predicted the likely ride requests given the time of day and the day of week and leverage it to optimize rider/driver interactions.
 
@@ -52,3 +49,8 @@ With the information of the current/upcoming hotspots, the benefits are three-fo
 -Incorporating directions into it/integrating more with the Uber app itself
 -Finding local attractions in the area of the hotspots to possibly create a travel app where you can efficiently bounce from venue to venue quickly but with more freedom than public transit.
 
+
+
+
+## To see the website
+Run " python app.py " in the root directory of this project. It will take a while to finish running the program because it is training the model based on the data.
